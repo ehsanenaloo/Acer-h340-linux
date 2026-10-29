@@ -11,7 +11,7 @@
 
 Report privately through GitHub's private vulnerability reporting: open <https://github.com/ehsanenaloo/Acer-h340-linux/security/advisories/new> (Security tab, "Report a vulnerability").
 
-If you cannot use GitHub advisories, write to <report@enaloo.com>. Please do not send details in a public place.
+If you cannot use GitHub advisories, open an issue that says only that you have a security report, with no details. The maintainer will then contact you.
 
 Do not open a public issue, pull request or discussion for a suspected vulnerability.
 
