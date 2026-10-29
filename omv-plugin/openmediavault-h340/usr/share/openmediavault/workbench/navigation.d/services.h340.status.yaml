@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.h340.status"
+  position: 30
+  text: _("Status")
+  icon: "mdi:information-outline"
+  url: "/services/h340/status"

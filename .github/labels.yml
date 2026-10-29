@@ -1,0 +1,20 @@
+# Labels used by this project.
+
+- name: bug
+  color: d73a4a
+  description: Something does not work as documented
+- name: enhancement
+  color: a2eeef
+  description: New feature or improvement
+- name: documentation
+  color: 0075ca
+  description: Improvements to the documentation
+- name: question
+  color: d876e3
+  description: A question about using the project
+- name: hardware
+  color: fbca04
+  description: Needs a person with an H340 to check
+- name: good first issue
+  color: 7057ff
+  description: A good place to start

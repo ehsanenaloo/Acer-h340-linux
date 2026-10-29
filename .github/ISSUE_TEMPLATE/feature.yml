@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a change or a new capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A request is not a promise to build it. The lamp addresses are measured on one board, so requests for other hardware cannot be handled without a person who owns that hardware and can test.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What do you want to do, and what is missing?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like to happen
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Other ways you thought about

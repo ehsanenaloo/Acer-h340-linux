@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/h340/status"
+  title: _("Status")
+  component: omv-services-h340-status-text-page

@@ -1,0 +1,29 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-h340-leds-form-page
+  type: formPage
+  config:
+    request:
+      service: H340
+      get:
+        method: getLedSettings
+      post:
+        method: setLedSettings
+    fields:
+      - type: checkbox
+        name: ledenable
+        label: _("Enabled")
+        hint: _("Each drive bay shows its own disk. Blue pulses follow activity, red blinks for a failing or missing disk, purple means a new disk that is not in use yet, and the USB light shows the front device and copying. The disk in a bay is read from the system, so nothing needs to be assigned here. A disk becomes known when it is mounted. Stopping this service returns the lights to their startup state.")
+        value: false
+      - type: checkbox
+        name: forgetmissing
+        label: _("Forget removed disks")
+        hint: _("Tick this and save once after a disk was removed for good. Its bay then stops showing a fault. Disks that are still installed are kept.")
+        value: false
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/h340"

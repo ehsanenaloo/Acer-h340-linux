@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/h340/power"
+  title: _("Power button")
+  editing: true
+  notificationTitle: _("Updated the power button action.")
+  component: omv-services-h340-power-form-page

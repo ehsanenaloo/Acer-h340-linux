@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/h340/backup"
+  title: _("Backup")
+  editing: true
+  notificationTitle: _("Updated H340 backup settings.")
+  component: omv-services-h340-backup-form-page

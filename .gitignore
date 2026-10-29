@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+dist/
+*.deb
+*.ko
+*.zip
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db

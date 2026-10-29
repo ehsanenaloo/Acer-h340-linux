@@ -1,0 +1,11 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-h340-status-text-page
+  type: textPage
+  config:
+    hasReloadButton: true
+    request:
+      service: H340
+      get:
+        method: getStatus

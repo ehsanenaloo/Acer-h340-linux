@@ -1,0 +1,14 @@
+Package: acer-h340-usb-backup-dkms
+Version: @VERSION@
+Section: kernel
+Priority: optional
+Architecture: all
+Maintainer: Ehsan Enaloo <19691857+ehsanenaloo@users.noreply.github.com>
+Depends: dkms
+Recommends: linux-headers-amd64
+Description: Acer H340 USB Backup button kernel module (DKMS)
+ Turns the front USB Backup button of an Acer Aspire easyStore H340 into a
+ Linux KEY_COPY input event. The module binds only the firmware's PNP0C32
+ button node on this board, reads no ports and starts no copy.
+ The module is built for the running kernel with DKMS and needs its headers.
+ Loading it is left to the boot-time module list in /etc/modules-load.d.

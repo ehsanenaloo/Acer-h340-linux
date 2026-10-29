@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  packages:
+    if: github.repository == 'ehsanenaloo/Acer-h340-linux'
+    name: Build and inspect the packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check the Python files
+        run: python3 -m compileall -q src tools
+
+      - name: Check the shell scripts
+        run: |
+          for f in $(find packaging omv-plugin -path '*/debian/*' -type f ! -name control ! -name triggers) $(find omv-plugin -name '*.sh'); do
+            sh -n "$f"
+          done
+
+      - name: Build the packages
+        run: python3 tools/build_plugin.py --out dist
+
+      - name: Inspect the packages
+        run: |
+          for p in dist/*.deb; do
+            dpkg-deb -I "$p" | head -12
+            dpkg-deb -c "$p" | head -30
+          done

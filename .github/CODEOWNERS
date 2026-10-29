@@ -1,0 +1,6 @@
+# Every change needs review from the maintainer.
+*                  @ehsanenaloo
+/kernel/**         @ehsanenaloo
+/src/leds/**       @ehsanenaloo
+/.github/**        @ehsanenaloo
+/tools/**          @ehsanenaloo

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.h340.leds"
+  position: 20
+  text: _("LEDs")
+  icon: "mdi:led-on"
+  url: "/services/h340/leds"

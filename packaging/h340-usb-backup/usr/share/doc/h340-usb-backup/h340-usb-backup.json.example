@@ -1,0 +1,11 @@
+{
+  "destination_root": "/srv/backups/h340-usb",
+  "reserve_bytes": 5368709120,
+  "label": "usb",
+  "exclude": [
+    "System Volume Information",
+    "$RECYCLE.BIN",
+    "lost+found",
+    ".Trash-*"
+  ]
+}

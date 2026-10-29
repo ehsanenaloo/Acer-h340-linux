@@ -1,0 +1,19 @@
+[Unit]
+Description=Acer H340 USB Backup button copy runner
+After=local-fs.target systemd-modules-load.service
+ConditionPathExists=/etc/h340-usb-backup.json
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -B /usr/lib/h340-usb-backup/h340_usb_runner.py --config /etc/h340-usb-backup.json
+User=root
+RuntimeDirectory=h340-usb-backup
+RuntimeDirectoryMode=0755
+StateDirectory=h340-usb-backup
+StateDirectoryMode=0755
+TimeoutStopSec=120
+Restart=no
+UMask=0022
+
+[Install]
+WantedBy=multi-user.target

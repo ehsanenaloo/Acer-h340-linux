@@ -1,0 +1,5 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-h340-navigation-page
+  type: navigationPage

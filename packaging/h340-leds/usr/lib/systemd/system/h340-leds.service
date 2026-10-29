@@ -1,0 +1,20 @@
+[Unit]
+Description=Acer H340 disk activity and observed fault indicators
+After=systemd-udev-trigger.service
+ConditionPathExists=/dev/port
+ConditionPathExists=/etc/h340-leds.json
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -B /usr/lib/h340-leds/h340_leds.py --config /etc/h340-leds.json
+User=root
+RuntimeDirectory=h340-leds
+RuntimeDirectoryMode=0700
+StateDirectory=h340-leds
+StateDirectoryMode=0700
+TimeoutStopSec=45
+Restart=no
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

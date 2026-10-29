@@ -1,0 +1,18 @@
+Package: h340-leds
+Version: @VERSION@
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: Ehsan Enaloo <19691857+ehsanenaloo@users.noreply.github.com>
+Depends: python3 (>= 3.11), smartmontools
+Description: Acer H340 front panel indicators
+ Drives the front drive, system and USB lamps of an Acer Aspire easyStore H340
+ from disk activity, SMART health, system state, the fan tach signal and the
+ front USB device. Only the measured H340 is accepted: the service checks the
+ board and chip identity, writes only the documented lamp bits, verifies each
+ write and restores the startup state on a normal stop.
+ The bay of a disk comes from its SATA port. The service remembers which disks
+ belong to the server: a disk joins when it is mounted. An unknown disk shows
+ purple and a known disk that is gone shows a red fault.
+ The service starts only when /etc/h340-leds.json exists. The openmediavault-h340
+ plugin writes that file; it can also be written by hand.

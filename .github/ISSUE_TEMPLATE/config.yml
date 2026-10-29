@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Install guide and FAQ
+    url: https://github.com/ehsanenaloo/Acer-h340-linux/blob/main/INSTALL.md
+    about: Packages, settings files, the power button and other systems. Check them before you open a question.
+  - name: Security vulnerability
+    url: https://github.com/ehsanenaloo/Acer-h340-linux/security/advisories/new
+    about: Report vulnerabilities privately. Do not open a public issue.

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.h340.backup"
+  position: 10
+  text: _("Backup")
+  icon: "mdi:backup-restore"
+  url: "/services/h340/backup"

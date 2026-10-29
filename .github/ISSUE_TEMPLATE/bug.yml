@@ -1,0 +1,69 @@
+name: Bug report
+description: A lamp, the button, the copy or a settings page does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please read INSTALL.md and search the existing issues first.
+        Do not include passwords, keys or private data. Report security problems privately through the Security tab, not here.
+  - type: input
+    id: machine
+    attributes:
+      label: Machine
+      description: The model and the board.
+      placeholder: "Acer Aspire easyStore H340, board WG945GCM"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: System and kernel
+      placeholder: "Debian 13, OpenMediaVault 8.5.12, kernel 7.2.9"
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Package versions
+      description: Output of `dpkg -l | grep -E "h340|acer-h340"`.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Drive or system lamps
+        - USB lamp
+        - USB Backup button
+        - USB copy
+        - Power button
+        - OpenMediaVault pages
+        - Packages and install
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Include the log lines around the problem, for example from `journalctl -u h340-leds -u h340-usb-backup`.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the existing issues and read INSTALL.md.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+        - label: I removed passwords, keys and private data.
+          required: true

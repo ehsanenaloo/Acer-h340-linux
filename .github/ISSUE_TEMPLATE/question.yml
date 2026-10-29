@@ -1,0 +1,19 @@
+name: Question
+description: Ask how something works
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read the README and INSTALL.md first and search the existing issues.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What you tried
+      description: Your system, the package versions and what you already did.

@@ -1,0 +1,10 @@
+{%- set root = salt['omv_conf.get_sharedfolder_path'](config.sharedfolderref) | rstrip('/') -%}
+{%- set rel = config.reldirpath | strip('/') -%}
+{%- set destination = ((root ~ '/' ~ rel) if rel else root) | path_prettify | rstrip('/') -%}
+{%- set excludes = config.excludes.splitlines() | map('trim') | select | list -%}
+{{ {
+  'destination_root': destination,
+  'reserve_bytes': (config.reservemib | int) * 1048576,
+  'label': config.label,
+  'exclude': excludes
+} | tojson(indent=2) }}

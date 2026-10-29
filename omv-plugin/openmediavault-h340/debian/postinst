@@ -1,0 +1,33 @@
+#!/usr/bin/env dash
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		systemctl daemon-reload || true
+
+		# Rebuild the workbench configuration files.
+		dpkg-trigger update-workbench
+
+		# Migrate first. The stored settings of an older version do not match
+		# the new model until then, and the create step would see no valid
+		# settings and write the defaults over them.
+		echo "Updating configuration database ..."
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.h340" "${2}"
+		fi
+		omv-confdbadm create "conf.service.h340"
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

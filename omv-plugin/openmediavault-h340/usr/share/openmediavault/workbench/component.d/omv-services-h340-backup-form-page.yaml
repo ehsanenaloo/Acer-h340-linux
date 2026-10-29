@@ -1,0 +1,67 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-h340-backup-form-page
+  type: formPage
+  config:
+    request:
+      service: H340
+      get:
+        method: getBackupSettings
+      post:
+        method: setBackupSettings
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        hint: _("Copy the front USB device when the USB Backup button is pressed. Plugging in a device never starts a copy.")
+        value: false
+      - type: divider
+        title: _("Destination")
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("Backups are written below this shared folder.")
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: enable
+            arg1: true
+      - type: textInput
+        name: reldirpath
+        label: _("Sub-folder")
+        hint: _("Optional folder inside the shared folder. Each backup run creates its own dated folder here. Leave empty to use the shared folder itself.")
+        value: "USB-Backups"
+      - type: numberInput
+        name: reservemib
+        label: _("Free space to keep (MiB)")
+        hint: _("A backup does not start if it would leave less free space than this on the destination.")
+        value: 5120
+        validators:
+          required: true
+          min: 0
+          patternType: integer
+      - type: textInput
+        name: label
+        label: _("Run name")
+        hint: _("Added to the name of each dated backup folder. Letters, digits, - and _ only.")
+        value: "usb"
+        validators:
+          required: true
+          pattern:
+            pattern: '^[A-Za-z0-9_-]{1,32}$'
+            errorData: _("Use 1 to 32 letters, digits, - or _.")
+      - type: divider
+        title: _("Skipped names")
+      - type: textarea
+        name: excludes
+        label: _("Do not copy")
+        hint: _("One name pattern per line, matched against single file or folder names, ignoring case. * and ? work. Matching folders are skipped with everything inside.")
+        value: "System Volume Information\n$RECYCLE.BIN\nlost+found\n.Trash-*"
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/h340"

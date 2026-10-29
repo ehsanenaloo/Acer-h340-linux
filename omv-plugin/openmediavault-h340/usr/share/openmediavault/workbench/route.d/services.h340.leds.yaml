@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/h340/leds"
+  title: _("LEDs")
+  editing: true
+  notificationTitle: _("Updated H340 LED settings.")
+  component: omv-services-h340-leds-form-page

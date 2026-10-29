@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/h340"
+  title: _("H340 USB Backup")
+  component: omv-services-h340-navigation-page

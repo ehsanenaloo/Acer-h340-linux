@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.h340.power"
+  position: 25
+  text: _("Power button")
+  icon: "mdi:power"
+  url: "/services/h340/power"

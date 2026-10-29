@@ -1,0 +1,17 @@
+Package: openmediavault-h340
+Version: @VERSION@
+Section: net
+Priority: optional
+Architecture: all
+Maintainer: Ehsan Enaloo <19691857+ehsanenaloo@users.noreply.github.com>
+Depends: openmediavault (>= 8.5.10), python3 (>= 3.11), h340-usb-backup (>= 0.5.0)
+Recommends: h340-leds, acer-h340-usb-backup-dkms
+Homepage: https://www.openmediavault.org
+Description: openmediavault Acer H340 USB Backup plugin
+ Settings pages for the Acer Aspire easyStore H340 in OpenMediaVault: the
+ destination, free-space reserve, run name and skipped names of the one-touch USB
+ copy (service in the h340-usb-backup package), the front lamps, the power
+ button and a status page.
+ The settings pages also cover the front lamps (h340-leds package) and show
+ the service state, each bay and the last copy. The button itself needs the kernel
+ module from the acer-h340-usb-backup-dkms package.

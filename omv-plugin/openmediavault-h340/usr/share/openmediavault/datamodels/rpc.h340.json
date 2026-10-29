@@ -1,0 +1,85 @@
+[
+	{
+		"type": "rpc",
+		"id": "rpc.h340.setbackupsettings",
+		"params": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"required": true
+				},
+				"sharedfolderref": {
+					"type": "string",
+					"oneOf": [
+						{
+							"type": "string",
+							"format": "uuidv4"
+						},
+						{
+							"type": "string",
+							"maxLength": 0
+						}
+					],
+					"required": true
+				},
+				"reldirpath": {
+					"type": "string",
+					"maxLength": 255,
+					"required": true
+				},
+				"reservemib": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 10485760,
+					"required": true
+				},
+				"label": {
+					"type": "string",
+					"pattern": "^[A-Za-z0-9_-]{1,32}$",
+					"required": true
+				},
+				"excludes": {
+					"type": "string",
+					"maxLength": 4096,
+					"required": true
+				}
+			}
+		}
+	},
+	{
+		"type": "rpc",
+		"id": "rpc.h340.setledsettings",
+		"params": {
+			"type": "object",
+			"properties": {
+				"ledenable": {
+					"type": "boolean",
+					"required": true
+				},
+				"forgetmissing": {
+					"type": "boolean",
+					"required": true
+				}
+			}
+		}
+	},
+	{
+		"type": "rpc",
+		"id": "rpc.h340.setpowersettings",
+		"params": {
+			"type": "object",
+			"properties": {
+				"powerbutton": {
+					"type": "string",
+					"enum": [
+						"nothing",
+						"shutdown",
+						"sleep"
+					],
+					"required": true
+				}
+			}
+		}
+	}
+]

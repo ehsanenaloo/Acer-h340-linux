@@ -1,0 +1,23 @@
+#!/usr/bin/env dash
+set -e
+
+case "$1" in
+	purge)
+		if [ -x /usr/sbin/omv-confdbadm ]; then
+			omv-confdbadm delete "conf.service.h340" || true
+		fi
+		# Backup data under the chosen shared folder is never touched.
+	;;
+	remove)
+		systemctl daemon-reload || true
+		dpkg-trigger update-workbench
+	;;
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	;;
+	*)
+		echo "postrm called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

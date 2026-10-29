@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.h340"
+  text: _("H340 USB Backup")
+  icon: "mdi:usb-flash-drive"
+  url: "/services/h340"

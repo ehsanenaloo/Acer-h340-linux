@@ -1,0 +1,32 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-h340-power-form-page
+  type: formPage
+  config:
+    request:
+      service: H340
+      get:
+        method: getPowerSettings
+      post:
+        method: setPowerSettings
+    fields:
+      - type: select
+        name: powerbutton
+        label: _("A short press does")
+        value: "shutdown"
+        store:
+          data:
+            - - "shutdown"
+              - _("Shut down")
+            - - "sleep"
+              - _("Sleep (suspend to RAM)")
+            - - "nothing"
+              - _("Nothing")
+        hint: _("Shut down ends all services cleanly and powers the NAS off. Sleep keeps the memory powered and wakes with the power button; it has not been tested on every H340, so try it before you rely on it. Nothing ignores the button. This is the same setting as System > Power Management > Power button. A file you added by hand in /etc/systemd/logind.conf.d can override it; the Status page shows when that happens.")
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/h340"

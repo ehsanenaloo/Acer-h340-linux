@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+	remove|upgrade|deconfigure)
+		# A normal stop restores the startup lamp bits and verifies them.
+		if systemctl is-active --quiet h340-leds 2>/dev/null; then
+			systemctl stop h340-leds || true
+		fi
+	;;
+	failed-upgrade)
+	;;
+	*)
+		echo "prerm called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

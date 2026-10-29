@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+NAME=acer-h340-usb-backup
+VERSION=1.0
+
+case "$1" in
+	configure)
+		# Register once. A module already registered by hand is kept as it is.
+		if ! dkms status -m "$NAME" -v "$VERSION" 2>/dev/null | grep -q .; then
+			dkms add -m "$NAME" -v "$VERSION"
+		fi
+		if ! dkms status -m "$NAME" -v "$VERSION" -k "$(uname -r)" 2>/dev/null | grep -q "installed"; then
+			# Without matching headers the build fails; the module can be built later.
+			dkms install -m "$NAME" -v "$VERSION" -k "$(uname -r)" ||
+				echo "Could not build $NAME for $(uname -r). Install the kernel headers and run: dkms autoinstall" >&2
+		fi
+	;;
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

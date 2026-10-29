@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+NAME=acer-h340-usb-backup
+VERSION=1.0
+
+case "$1" in
+	remove)
+		# A loaded module stays loaded until the next boot; it is not unloaded here.
+		dkms remove -m "$NAME" -v "$VERSION" --all || true
+	;;
+	upgrade|deconfigure|failed-upgrade)
+	;;
+	*)
+		echo "prerm called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

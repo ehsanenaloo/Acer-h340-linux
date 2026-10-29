@@ -1,0 +1,21 @@
+Package: h340-usb-backup
+Version: @VERSION@
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: Ehsan Enaloo <19691857+ehsanenaloo@users.noreply.github.com>
+Depends: python3 (>= 3.11), mount, systemd
+Recommends: acer-h340-usb-backup-dkms, h340-leds
+Replaces: openmediavault-h340 (<< 0.5.0)
+Breaks: openmediavault-h340 (<< 0.5.0)
+Description: Acer H340 one-touch USB Backup copy service
+ Waits for the front USB Backup button of an Acer Aspire easyStore H340 and
+ copies the device on the front USB port to a folder you choose. The source is
+ mounted read-only, nothing is deleted or overwritten, every file is verified
+ after copying, and each run gets its own dated folder. Insertion of a device
+ never starts a copy.
+ Works on any systemd system. The button needs the kernel module from the
+ acer-h340-usb-backup-dkms package. The service starts only when
+ /etc/h340-usb-backup.json exists; an example is in
+ /usr/share/doc/h340-usb-backup. The openmediavault-h340 plugin writes that
+ file from its settings page.
