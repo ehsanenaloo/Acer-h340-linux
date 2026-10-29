@@ -14,6 +14,8 @@ The Acer Aspire easyStore H340 is a small home server that came with Windows Hom
 
 </div>
 
+<p align="center"><img src="assets/h340.webp" alt="The Acer Aspire easyStore H340 with its door open and one drive tray pulled out" width="420"></p>
+
 ## Why this project exists
 
 Put Debian or OpenMediaVault on an H340 and the front of the box goes quiet. The drive lamps stay dark, the USB Backup button does nothing and the power button may be ignored. These packages fix that. Each part works on its own, and only the settings pages need OpenMediaVault.
@@ -141,6 +143,7 @@ The copy service never deletes anything and never overwrites a file.
 ## Layout
 
 ```text
+assets/         the picture used in the README
 src/            the lamp service and the copy service
 kernel/         the USB Backup button module
 packaging/      the Debian packages for the module, the lamps and the copy service

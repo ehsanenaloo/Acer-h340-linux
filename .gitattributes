@@ -5,3 +5,4 @@
 *.ko binary
 *.deb binary
 *.sh text eol=lf
+*.webp binary
