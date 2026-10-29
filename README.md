@@ -168,6 +168,12 @@ tools/          the package builder
 
 Bug reports, fixes and reports from other H340 owners are welcome. Read [CONTRIBUTING.md](.github/CONTRIBUTING.md) first. By taking part you agree to the [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
+### Contributors
+
+Thanks to everyone who has helped. Your name appears here after your first merged contribution.
+
+<a href="https://github.com/ehsanenaloo/Acer-h340-linux/graphs/contributors"><img src="https://contrib.rocks/image?repo=ehsanenaloo/Acer-h340-linux&max=100" alt="Contributors"></a>
+
 If the project helps you, you can [buy me a coffee](https://buymeacoffee.com/enaloo). It is never expected.
 
 ---
